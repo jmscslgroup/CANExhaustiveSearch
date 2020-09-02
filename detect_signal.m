@@ -20,7 +20,7 @@ function [time, detectedmessages, flag] = detect_signal(T, messageID, bus, signa
     binarystr = strings(1, TMsize(1));
     
     if length(MLen) == 1
-        fprintf("Message Length: %d\n", MLen);
+        fprintf("\nMessage Length for Message ID %d is: %d\n", messageID, MLen);
         if (signal_pos > MLen*8) 
             fprintf("Specified Signal Position %d exceeded the message length boundary\n", signal_pos);
             flag = -1;

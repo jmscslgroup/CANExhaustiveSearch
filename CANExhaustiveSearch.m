@@ -20,9 +20,13 @@ function CANExhaustiveSearch(folder, csvfile, data2writefile, makeplot)
     
     correlationfile = data2writefile + "/"+"CorrCoeffSpeed.csv";
     if ~isfile(correlationfile)
+        fprintf("Correlation file doesn't exist .. creating\n");
         fileID = fopen(correlationfile,'w');
-        fprintf(fileID,'MessageID,Bus,SignalPos,SignalLength,CorrCoeffWithSpeed, Power\n');
+        fprintf(fileID,'MessageID,Bus,SignalPos,SignalLength,CorrCoeffWithSpeed\n');
         fclose(fileID);
+    else
+        fprintf("Correlation file exists .. not creating\n");
+        
     end
 
 
@@ -44,19 +48,17 @@ function CANExhaustiveSearch(folder, csvfile, data2writefile, makeplot)
      T = table(data{1}, data{2}, data{3}, data{4}, data{5});
      T.Properties.VariableNames = ["Time", "Bus", "MessageID", "Message", "MessageLength"];
 
-     %MessageIDs = unique(T.MessageID);
-     %MessageIDs =  MessageIDs';
-     MessageIDs = [902];
+     MessageIDs = unique(T.MessageID);
+     MessageIDs =  MessageIDs';
+
      %Len = length(MessageIDs);
 
      ts_speed = get_speed(T);
      desired_frequency = 50; % 50Hz
-     
-     
 
-     for id = 1:numel(MessageIDs)
+     fprintf("\nEnter parfor loop\n");
+     parfor id = 1:numel(MessageIDs)
          M_id = MessageIDs(id);
-         M_id
          TM = T(T.MessageID == M_id, :);
          sig_length = [linspace(1, 16, 16), 32];
 
@@ -68,10 +70,10 @@ function CANExhaustiveSearch(folder, csvfile, data2writefile, makeplot)
          for bus = 0:2
             TB = TM(TM.Bus == bus,:);
             if isempty(TB)
-                fprintf("\nMessagae with ID %d on Bus %d doesn't exist\n", M_id, bus);
+                fprintf("\nMessages with ID %d on Bus %d doesn't exist\n", M_id, bus);
                 continue;
             end
-             for sig_pos = 1:64
+            for sig_pos = 1:64
 
                 for sig_len = sig_length
 
@@ -85,7 +87,7 @@ function CANExhaustiveSearch(folder, csvfile, data2writefile, makeplot)
                       end
 
 
-                    [time, detectedval, flag] = detect_signal(TB, M_id, bus, sig_pos, sig_len);
+                    [time, detectedval, flag] = detect_signal(T, M_id, bus, sig_pos, sig_len);
                     if flag == -1
                         continue;
                     end
@@ -93,24 +95,20 @@ function CANExhaustiveSearch(folder, csvfile, data2writefile, makeplot)
                     ts_msg =  timeseries(detectedval, time);
 
                     if 1/mean(diff(ts_msg.Time)) < desired_frequency
-                        frequency = 1/mean(diff(ts_msg.Time)) ;
+                        frequency = 1/mean(diff(ts_msg.Time));
                     else
                         frequency = desired_frequency;
                     end
-                    
-                    ts_msg
-                    frequency
+
                     % Synchronize the newly obtained timeseries with speed timeseries so as to calculate correlation coefficient
                      [ts_msg_resampled, ts_speed_resampled] = synchronize(ts_msg, ts_speed, 'Uniform','Interval', 1.0/frequency, 'InterpMethod','zoh');
-                    ts_msg_resampled
-                    ts_speed_resampled
+
                      % Calculate correlation Coefficient
                      cf= corrcoef(ts_msg_resampled.Data(1,:), ts_speed_resampled.Data(1,:));
                      cf2 = cf(2);
-                     [~,~,~,power] = powerbw(ts_msg_resampled.Data(1,:));
-                     
+
                     fileID = fopen(correlationfile,'a');
-                    fprintf(fileID,'%d, %d,%d,%d,%f, %f\n', M_id, bus, sig_pos, sig_len, cf2, power);
+                    fprintf(fileID,'%d, %d,%d,%d,%f\n', M_id, bus, sig_pos, sig_len, cf2);
                     fclose(fileID);
 
                     if makeplot == true
@@ -120,7 +118,7 @@ function CANExhaustiveSearch(folder, csvfile, data2writefile, makeplot)
                         scatter(time, detectedval, 5 ,'MarkerEdgeColor',[0 .5 .5],...
                           'MarkerFaceColor',[0 .7 .7]);
 
-                        title(sprintf("Exhaustive Search for Signal Detection, Messqge ID %d", M_id), 'FontSize', 10, 'Interpreter','none');
+                        title(sprintf("Exhaustive Search for Signal Detection, Message ID %d", M_id), 'FontSize', 10, 'Interpreter','none');
                         grid on;
                         grid minor;
                         ax = gca;

@@ -1,34 +1,19 @@
 % (C) Rahul Bhadani
-folder = "/home/ivory/CyverseData/JmscslgroupData/PandaData/2020_08_13";
-file_name = "2020-08-13-13-26-45_2T3Y1RFV8KC014025_CAN_Messages.csv";
-data2writefile= "/home/ivory/VersionControl/CodeExample/ExhaustiveSearchMat";
-makeplot = false;
+myCluster = parcluster('local');
+myCluster.NumWorkers = 8;  % 'Modified' property now TRUE
+saveProfile(myCluster);    % 'local' profile now updated,
 
-addpath("/home/ivory/VersionControl/CodeExample");
-CANExhaustiveSearch(folder, file_name, data2writefile, makeplot);
+parpool(myCluster, myCluster.NumWorkers);
 
-fid = fopen(folder  + "/" + file_name);
-data = textscan(fid,'%f %d %d %s %f','headerlines', 1, 'delimiter', ',');
-fclose(fid);
+folder = "/home/u27/rahulbhadani/ExhaustiveSearch";
+fprintf("\n------------------------------------------------------------\n");
+file_name = "2020-08-20-13-46-34_2T3Y1RFV8KC014025_CAN_Messages.csv";
 
-n_col = length(data);
-len_cols = zeros(1, n_col);
+fprintf("\nRunning Exhaustive Search for file (with separate bus)%s.\n", file_name);
 
-for i = 1:n_col
-    len_cols(i) = length(data{i});
-end
+data2writefile= "/groups/sprinkjm/ExhaustiveSearch_2020-08-20-13-46-34_bus";
+plot = true;
 
-[val_min, index_min] = min(len_cols);
-
-for i = 1:n_col
-    if length(data{i}) > val_min
-        data{i} = data{i}(1:end - ( length(data{i})  -val_min ));
-    end
-end
-
-T = table(data{1}, data{2}, data{3}, data{4}, data{5});
-T.Properties.VariableNames = ["Time", "Bus", "MessageID", "Message", "MessageLength"];
-
-
-ts_speed = get_speed(T);
-plot(ts_speed);
+addpath("/home/u27/rahulbhadani/ExhaustiveSearch");
+CANExhaustiveSearch(folder, file_name, data2writefile, plot);
+fprintf("\n----------\nDone\n---------\n");
