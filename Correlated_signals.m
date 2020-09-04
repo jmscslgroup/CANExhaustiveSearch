@@ -1,4 +1,7 @@
 % (C) Rahul Bhadani
+clear;
+close all;
+set(0,'DefaultFigureWindowStyle','docked');
 folder = "/home/ivory/CyverseData/JmscslgroupData/PandaData/2020_08_20";
 file_name = "2020-08-20-13-46-34_2T3Y1RFV8KC014025_CAN_Messages.csv";
 
@@ -35,7 +38,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1595;
@@ -47,7 +50,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 552;
@@ -59,6 +62,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');
 plot(ts, 'r.');
 
 %%
@@ -71,7 +75,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 %%
 Msg_id = 180;
 Signal_Pos =  41;
@@ -82,7 +86,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 
 %%
@@ -156,7 +160,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1552;
@@ -168,7 +172,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1552;
@@ -180,7 +184,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 353;
@@ -192,7 +196,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 353;
@@ -204,7 +208,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1800;
@@ -216,7 +220,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1800;
@@ -228,7 +232,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 464;
@@ -240,7 +244,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 464;
@@ -252,7 +256,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 
 %%
@@ -265,7 +269,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1042;
@@ -277,7 +281,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1042;
@@ -289,7 +293,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1161;
@@ -301,7 +305,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 877;
@@ -313,7 +317,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1775;
@@ -325,7 +329,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1557;
@@ -337,7 +341,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1020;
@@ -349,7 +353,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1020;
@@ -361,7 +365,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1020;
@@ -373,7 +377,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1020;
@@ -385,7 +389,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1056;
@@ -397,7 +401,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1086;
@@ -409,7 +413,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 1132;
@@ -421,7 +425,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 
 %%
@@ -434,7 +438,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 871;
@@ -446,7 +450,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 452;
@@ -458,7 +462,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 830;
@@ -470,7 +474,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 830;
@@ -482,7 +486,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 870;
@@ -494,7 +498,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 870;
@@ -506,7 +510,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 877;
@@ -518,7 +522,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 
 %%
@@ -531,7 +535,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 401;
@@ -543,7 +547,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 933;
@@ -555,7 +559,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 944;
@@ -567,7 +571,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 705;
@@ -579,7 +583,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 705;
@@ -591,7 +595,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 
 %%
@@ -604,7 +608,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 955;
@@ -616,7 +620,7 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 
 %%
 Msg_id = 898;
@@ -628,5 +632,5 @@ ts =timeseries(detectedmessages, time);
 ts.Name = sprintf("Message ID: %d, Signal Pos: %d, Signa Length: %d, Bus: %d", Msg_id, Signal_Pos, ...
      Signal_Length, Bus);
 figure;
-plot(ts, 'r.');
+grid on;     grid minor;     ax = gca;     ax.GridColor = [130, 130, 130]/255;     set(gca,'Color', [235, 235, 235]/255);     set(gca,'FontSize',16);     set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');plot(ts, 'r.');
 

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+### Set the job name
+#PBS -N exhaustiveSearch_CAN
+#PBS -m bea
+
+### Request email when job begins and ends
+#PBS -M rahulbhadani@email.arizona.edu
+#PBS -W group_list=sprinkjm
+#PBS -q standard
+#PBS -l place=pack:shared
+#PBS -l pvmem=128gb
+#### PBS -l jobtype=serial
+
+#PBS -l select=1:ncpus=28:mem=168gb:pcmem=6gb
+#PBS -l cput=6000:0:0
+#PBS -l walltime=200:0:0
+
+date
+module load matlab/r2019a
+cd /home/u27/rahulbhadani/ExhaustiveSearch
+matlab -nodisplay -nosplash < /home/u27/rahulbhadani/ExhaustiveSearch/CAN_Exhaustive_impl.m > /groups/sprinkjm/techstream/output.txt
+date
+
