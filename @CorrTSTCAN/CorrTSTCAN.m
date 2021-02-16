@@ -32,11 +32,77 @@ classdef CorrTSTCAN < matlab.mixin.Copyable
 
     %% Properties
     properties
+        
+        % TST = Techstream
         CANfile; % Location of CAN data file
         TSTfile; % Location of techstream file
         TSTFeature; % feature of TST we are interested in
+        
+        TSTData; % Whole data read from TST file
+        CANData; % Whole CAN data from CAN file
+        CANSpeed; % Speed retrieved from CAN Data
+        CANSpeedFlag; % Flag for validity of CAN speed data
+        TSTTimeCol;% What is the column name for Time Stamp in TST file
+        CANTimeCol; % What is the column name for Time Stamp in CAN file
+        CorrelationFolder;
+        
+        
     end
     
+    %% Methods
+    methods
+        %% Constructors
+        function obj = CorrTSTCAN(CANfile, TSTfile, TSTFeature, TSTTimeCol, CANTimeCol)
+            obj.CANfile = CANfile;
+            obj.TSTfile = TSTfile;
+            obj.TSTFeature = TSTFeature;
+            
+            if nargin == 3
+                obj.TSTTimeCol = "Sample Time";
+                obj.CANTimeCol = "Time";
+            elseif nargin == 4
+                obj.TSTTimeCol = TSTTimeCol;
+                obj.CANTimeCol = "Time";
+            elseif nargin == 5
+                obj.TSTTimeCol = TSTTimeCol;
+                obj.CANTimeCol = CANTimeCol;
+            end
+                            
+            obj.TSTData = readtable(TSTfile,'PreserveVariableNames',true);
+            
+            obj.TSTData = obj.TSTData(1:end-1,:);
+            
+            obj.CANData = readtable(CANfile,'PreserveVariableNames',true);
+            obj.CANData = obj.CANData(1:end-1,:);
+                        
+            tstime = obj.TSTData.(obj.TSTTimeCol);
+            cantime = obj.CANData.(obj.CANTimeCol);
+
+            if (cantime (1) > tstime(end))
+                fprintf("%f HRS\n", (cantime (1)- tstime(end))/3600.0);
+                
+                %error("Start Time of CAN data is after end time of Techstream Data. Feature correlation will fail.")
+            end
+
+            if (tstime (1) > cantime(end))
+                fprintf("%f HRS\n", (tstime (1)- cantime(end))/3600.0);
+                %error("Start Time of Techstream data is after end time of CAN Data. Feature correlation will fail.")
+            end
+            
+             [obj.CANData, obj.TSTData] = common_ts(obj.CANData, obj.TSTData,  obj.CANTimeCol, obj.TSTTimeCol);
+             
+             [obj.CANSpeed, obj.CANSpeedFlag] = obj.getCANSpeed();
+             [filepath,name,ext] = fileparts(CANfile);
+            
+             obj.CorrelationFolder = filepath + "/" + name + "_" + strrep(TSTFeature, ' ', '') + "_Correlation";
+             [~, ~, msgID] =  mkdir(obj.CorrelationFolder);
+            if( strcmp(msgID, 'MATLAB:MKDIR:DirectoryExists') )
+                fprintf('\n Correlation folder for %s already exists.\n\n', obj.CorrelationFolder);
+            end
+
+        end % end of constructors
+    
+    end % end of methods
     
     
 end
