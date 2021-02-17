@@ -89,7 +89,9 @@ classdef CorrTSTCAN < matlab.mixin.Copyable
                 %error("Start Time of Techstream data is after end time of CAN Data. Feature correlation will fail.")
             end
             
-             [obj.CANData, obj.TSTData] = common_ts(obj.CANData, obj.TSTData,  obj.CANTimeCol, obj.TSTTimeCol);
+
+             
+             [obj.CANData, obj.TSTData] = obj.common_ts(obj.CANData, obj.TSTData,  obj.CANTimeCol, obj.TSTTimeCol);
              
              [obj.CANSpeed, obj.CANSpeedFlag] = obj.getCANSpeed();
              [filepath,name,ext] = fileparts(CANfile);

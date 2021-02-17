@@ -45,7 +45,7 @@ T = obj.CANData;
         end
         
          for i = 1:TMsize(1)
-            binarystr(i)  = hex2bin(TM.Message{i});
+            binarystr(i)  = obj.hex2bin(TM.Message{i});
         end
         
     else
@@ -67,15 +67,7 @@ T = obj.CANData;
                 flag = -1;
                 return;
             end
-            binarystr(i)  = hex2bin(TM.Message{i});
-        end
-        
-    end
-    
-
-    for i = 1:TMsize(1)
-        bin_val = char(binarystr(i));
-        slice = bin_val(signal_pos:signal_pos+signal_len-1);
+            binarystr(i)  = obj.hex2bin(TM.Message{i});
         detectedmessages(i) = bin2dec(slice);
     end
     

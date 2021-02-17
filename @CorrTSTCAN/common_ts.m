@@ -1,4 +1,4 @@
-function [T1New, T2New] = common_ts(T1, T2, T1col, T2col)
+function [T1New, T2New] = common_ts(obj, T1, T2, T1col, T2col)
 
  
     T1New = T1((T1.(T1col) >= T2.(T2col)(1)) & (T1.(T1col) <= T2.(T2col)(end)),:);

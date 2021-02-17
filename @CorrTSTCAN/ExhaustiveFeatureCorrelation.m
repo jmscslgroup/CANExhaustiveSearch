@@ -64,7 +64,7 @@ function ExhaustiveFeatureCorrelation(obj, makeplot)
                           end
                       end
                       
-                    [time, detectedval, flag] = detect_signal(T, M_id, bus, sig_pos, sig_len);
+                    [time, detectedval, flag] = obj.detect_signal(T, M_id, bus, sig_pos, sig_len);
                     if flag == -1
                         continue;
                     end

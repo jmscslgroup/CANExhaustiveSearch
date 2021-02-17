@@ -1,4 +1,4 @@
-function [binstr] = hex2bin(hexstr)
+function [binstr] = hex2bin(obj, hexstr)
     binstr ="";
     hexchar = char(hexstr);
     for j = 1:strlength(hexchar)

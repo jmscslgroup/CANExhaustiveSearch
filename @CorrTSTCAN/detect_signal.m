@@ -1,4 +1,4 @@
-function [time, detectedmessages, flag] = detect_signal(T, messageID, bus, signal_pos, signal_len)
+function [time, detectedmessages, flag] = detect_signal(obj, T, messageID, bus, signal_pos, signal_len)
     fprintf('\nInput: Message ID: %d,  Bus: %d, Signal Pos: %d, Signal Len: %d\n',  messageID, bus, signal_pos, signal_len);
     Msg_id = messageID;
     flag = 0;
@@ -38,8 +38,8 @@ function [time, detectedmessages, flag] = detect_signal(T, messageID, bus, signa
         end
         
          for i = 1:TMsize(1)
-            binarystr(i)  = hex2bin(TM.Message{i});
-        end
+            binarystr(i)  = obj.hex2bin(TM.Message{i});
+         end
         
     else
         fprintf("Variable Message Lengths: %d\n", MLen);
@@ -60,7 +60,7 @@ function [time, detectedmessages, flag] = detect_signal(T, messageID, bus, signa
                 flag = -1;
                 return;
             end
-            binarystr(i)  = hex2bin(TM.Message{i});
+            binarystr(i)  = obj.hex2bin(TM.Message{i});
         end
         
     end
