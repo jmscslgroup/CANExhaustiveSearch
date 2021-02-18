@@ -9,10 +9,10 @@ function [speed_ts, flag] = getCANSpeed(obj)
 % if flag is nonzero, then only access speed.
 % Feb 15, 2021
 
-speed_ts = NaN;
-T = obj.CANData;
+    speed_ts = NaN;
+    T = obj.CANData;
 
- signal_pos = 41;
+     signal_pos = 41;
     signal_len = 16;
     fprintf('\nGenerating Speed Signal\n');
     Msg_id = 180;
@@ -68,9 +68,14 @@ T = obj.CANData;
                 return;
             end
             binarystr(i)  = obj.hex2bin(TM.Message{i});
-        detectedmessages(i) = bin2dec(slice);
+        end
     end
     
+     for i = 1:TMsize(1)
+        bin_val = char(binarystr(i));
+        slice = bin_val(signal_pos:signal_pos+signal_len-1);
+        detectedmessages(i) = bin2dec(slice);
+    end
     
      speed_ts = timeseries(detectedmessages, time);
      
