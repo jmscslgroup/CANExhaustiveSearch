@@ -1,4 +1,4 @@
-function [time, detectedmessages, flag] = detect_signal(obj, T, messageID, bus, signal_pos, signal_len)
+function [time, detectedmessages, flag] = detect_signal(obj, T, messageID, bus, signal_pos, signal_len, is_signed)
     fprintf('\nInput: Message ID: %d,  Bus: %d, Signal Pos: %d, Signal Len: %d\n',  messageID, bus, signal_pos, signal_len);
     Msg_id = messageID;
     flag = 0;
@@ -7,7 +7,7 @@ function [time, detectedmessages, flag] = detect_signal(obj, T, messageID, bus, 
     time = 0;
     detectedmessages = 0;
     if isempty(TM)
-        fprintf("\nMessagage ID %d on Bus %d doesn't exist\n", messageID, bus);
+        fprintf("\nMessage ID %d on Bus %d doesn't exist\n", messageID, bus);
         flag = -1;
         return;
     end
@@ -66,10 +66,23 @@ function [time, detectedmessages, flag] = detect_signal(obj, T, messageID, bus, 
     end
     
 
-    for i = 1:TMsize(1)
-        bin_val = char(binarystr(i));
-        slice = bin_val(signal_pos:signal_pos+signal_len-1);
-        detectedmessages(i) = bin2dec(slice);
+    if is_signed
+        for i = 1:TMsize(1)
+            bin_val = char(binarystr(i));
+            slice = bin_val(signal_pos:signal_pos+signal_len-1);
+            detectedmessages(i) = typecast(uint16(bin2dec(slice)),'int16');
+        end
+
+    else
+    
+    
+        for i = 1:TMsize(1)
+            bin_val = char(binarystr(i));
+            slice = bin_val(signal_pos:signal_pos+signal_len-1);
+            detectedmessages(i) = bin2dec(slice);
+        end
+
     end
+    
     
 end

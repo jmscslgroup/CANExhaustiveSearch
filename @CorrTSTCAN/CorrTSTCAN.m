@@ -37,6 +37,7 @@ classdef CorrTSTCAN < matlab.mixin.Copyable
         CANfile; % Location of CAN data file
         TSTfile; % Location of techstream file
         TSTFeature; % feature of TST we are interested in
+        TSTFeature2; % feature2 of TST we are interested in
         
         TSTData; % Whole data read from TST file
         CANData; % Whole CAN data from CAN file
@@ -52,18 +53,19 @@ classdef CorrTSTCAN < matlab.mixin.Copyable
     %% Methods
     methods
         %% Constructors
-        function obj = CorrTSTCAN(CANfile, TSTfile, TSTFeature, TSTTimeCol, CANTimeCol)
+        function obj = CorrTSTCAN(CANfile, TSTfile, TSTFeature, TSTFeature2, Offset, TSTTimeCol, CANTimeCol)
             obj.CANfile = CANfile;
             obj.TSTfile = TSTfile;
             obj.TSTFeature = TSTFeature;
+            obj.TSTFeature2 = TSTFeature2;
             
-            if nargin == 3
+            if nargin == 5
                 obj.TSTTimeCol = "Sample Time";
                 obj.CANTimeCol = "Time";
-            elseif nargin == 4
+            elseif nargin == 6
                 obj.TSTTimeCol = TSTTimeCol;
                 obj.CANTimeCol = "Time";
-            elseif nargin == 5
+            elseif nargin == 7
                 obj.TSTTimeCol = TSTTimeCol;
                 obj.CANTimeCol = CANTimeCol;
             end
@@ -91,8 +93,11 @@ classdef CorrTSTCAN < matlab.mixin.Copyable
             
 
              
-             [obj.CANData, obj.TSTData] = obj.common_ts(obj.CANData, obj.TSTData,  obj.CANTimeCol, obj.TSTTimeCol);
+             %[obj.CANData, obj.TSTData] = obj.common_ts(obj.CANData, obj.TSTData,  obj.CANTimeCol, obj.TSTTimeCol);
              
+             fprintf("\nDimension of CAN Table: %d\n", size(obj.CANData));
+             fprintf("\nDimension of TST Table: %d\n", size(obj.TSTData));
+
              [obj.CANSpeed, obj.CANSpeedFlag] = obj.getCANSpeed();
              [filepath,name,ext] = fileparts(CANfile);
             
