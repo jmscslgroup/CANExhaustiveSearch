@@ -48,4 +48,33 @@ c.ExhaustiveFeatureCorrelation(true, [180]);
 4. Create the object of type `CorrSignal` 
 5. Call `ExhaustiveFeatureCorrelation`. The first argument is a boolean which if `true`, creates a plot of every possible signal the method has hunted. The second argument is a list of IDs where to search for. You can leave it empty too, i.e. `ExhaustiveFeatureCorrelation(true, []);` for search all possible message IDs.
 
-## Running on HPC.
+## Running on HPC with PBS based job submission
+Assuming that above example code-snippet is in the file `CorrSignal_impl.m`, we can use the following PBS Script:
+
+```
+#!/bin/bash
+
+### Set the job name
+#PBS -N exhaustiveSearch_CAN
+#PBS -m bea
+
+### Request email when job begins and ends
+#PBS -M rahulbhadani@email.arizona.edu
+#PBS -W group_list=sprinkjm
+#PBS -q standard
+#PBS -l place=pack:shared
+#PBS -l pvmem=128gb
+#### PBS -l jobtype=serial
+
+#PBS -l select=1:ncpus=28:mem=168gb:pcmem=6gb
+#PBS -l cput=6000:0:0
+#PBS -l walltime=200:0:0
+
+date
+module load matlab/r2019a
+cd /home/u27/rahulbhadani/CANExhaustiveSearch
+matlab -nodisplay -nosplash < /home/u27/rahulbhadani/CANExhaustiveSearch/CorrSignal_impl.m > /home/u27/rahulbhadani/CANExhaustiveSearch/output_pbs.txt
+date
+```
+
+
