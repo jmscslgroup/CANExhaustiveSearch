@@ -28,7 +28,7 @@ function ExhaustiveFeatureCorrelation(obj, makeplot, messages)
     data2writefile = obj.CorrelationFolder;
     T = obj.CANData;
 
-   for id = 1:numel(MessageIDs)
+   parfor id = 1:numel(MessageIDs)
          M_id = MessageIDs(id);
         correlationfile = data2writefile + "/"+sprintf("CorrCoeffSpeed_%d.csv",M_id) ;
         if ~isfile(correlationfile)
@@ -41,7 +41,7 @@ function ExhaustiveFeatureCorrelation(obj, makeplot, messages)
         end
     
         TM = T(T.MessageID == M_id, :);
-        sig_length = [linspace(1, 16, 16), 32];
+          sig_length = [linspace(1, 16, 16), 32];
          
          folder = sprintf("%s/%d", data2writefile, M_id);
          if ~exist(folder, 'dir')
