@@ -1,7 +1,7 @@
 clear;close all;
-addpath("/home/refulgent/VersionControl/Jmscslgroup/CANExhaustiveSearch");
+addpath("/home/u27/rahulbhadani/CANExhaustiveSearch");
 myCluster = parcluster('local');
-myCluster.NumWorkers = 2;  % 'Modified' property now TRUE
+myCluster.NumWorkers = 28;  % 'Modified' property now TRUE
 saveProfile(myCluster);    % 'local' profile now updated,
 parpool(myCluster, myCluster.NumWorkers);
 

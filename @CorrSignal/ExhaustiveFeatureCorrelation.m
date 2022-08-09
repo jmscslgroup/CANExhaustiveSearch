@@ -104,7 +104,13 @@ function ExhaustiveFeatureCorrelation(obj, makeplot, messages)
                         set(gca,'XColor', [130, 130, 130]/255,'YColor',  [130, 130, 130]/255,'TickDir','out');
                         xlabel('Time (s)', 'Color', 'k');
                         ylabel('[Unit]','Color', 'k');
-                        ylim([min(detectedval)*0.70 - 15.0, max(detectedval)*1.30 + 15.0]);
+                        
+                        try
+                            ylim([min(detectedval)*0.70 - 15.0, max(detectedval)*1.30 + 15.0]);
+                        catch MExc
+                            disp('ylim failed');
+                        end
+                            
                         legend({sprintf("Message ID: %d, Bus: %d, Signal Pos: %d, Signal Len: %d", M_id, bus, sig_pos, sig_len)});
                         set(gcf, 'InvertHardCopy', 'off'); 
                         saveas(gcf, pngname);
